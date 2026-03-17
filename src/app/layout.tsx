@@ -20,16 +20,32 @@ const monoFont = IBM_Plex_Mono({
   weight: ["500", "600", "700"],
 });
 
+const socialPreviewLogo = "/topbuilder-exact/assets/d845327099d4adea70b7decb.png";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.topbuilder.dev"),
   title: "Top Builder Season 2 by PlebLab | Bitcoin Innovation Event Presented by Timestamp",
   description:
-    "Join Top Builder Season 2, a PlebLab event presented by Timestamp. Compete, innovate, and showcase projects advancing the Bitcoin and Lightning Network ecosystems.",
+    "Join Top Builder Season 2, a PlebLab event presented by Timestamp. Compete, innovate, and showcase projects advancing the Bitcoin and Lightning Network ecosystems with groundbreaking technical solutions and unique business models.",
   openGraph: {
-    title: "Top Builder Season 2 by PlebLab",
+    title: "Top Builder Season 2 by PlebLab | Bitcoin Innovation Event Presented by Timestamp",
     description:
-      "A Bitcoin innovation event presented by Timestamp, focused on product builders and teams.",
+      "Join Top Builder Season 2, a PlebLab event presented by Timestamp. Compete, innovate, and showcase projects advancing the Bitcoin and Lightning Network ecosystems with groundbreaking technical solutions and unique business models.",
     url: "https://www.topbuilder.dev",
     type: "website",
+    images: [
+      {
+        url: socialPreviewLogo,
+        alt: "PlebLab Topbuilder Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top Builder Season 2 by PlebLab | Bitcoin Innovation Event Presented by Timestamp",
+    description:
+      "Join Top Builder Season 2, a PlebLab event presented by Timestamp. Compete, innovate, and showcase projects advancing the Bitcoin and Lightning Network ecosystems with groundbreaking technical solutions and unique business models.",
+    images: [socialPreviewLogo],
   },
 };
 

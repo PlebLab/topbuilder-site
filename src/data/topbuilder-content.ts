@@ -25,7 +25,7 @@ export type LinkCard = {
 export const siteContent = {
   title: "Top Builder Season 2 by PlebLab | Bitcoin Innovation Event Presented by Timestamp",
   description:
-    "Join Top Builder Season 2, a PlebLab event presented by Timestamp. Compete, innovate, and showcase projects advancing the Bitcoin and Lightning Network ecosystems.",
+    "Join Top Builder Season 2, a PlebLab event presented by Timestamp. Compete, innovate, and showcase projects advancing the Bitcoin and Lightning Network ecosystems with groundbreaking technical solutions and unique business models.",
   hero: {
     label: "Top Builder",
     heading: "Are you the next Top Builder? Prove It.",
