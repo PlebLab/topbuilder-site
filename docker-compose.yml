@@ -1,0 +1,34 @@
+services:
+  web:
+    build: .
+    container_name: topbuilder-next
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    networks:
+      - web
+
+  caddy:
+    image: caddy:2
+    container_name: topbuilder-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:
