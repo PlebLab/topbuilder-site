@@ -1,5 +1,11 @@
-import { redirect } from "next/navigation";
-
 export default function HomePage() {
-  redirect("/topbuilder-exact/index.html");
+  return (
+    <main style={{ minHeight: "100vh", background: "#000" }}>
+      <iframe
+        src="/topbuilder-exact/index.html"
+        title="TopBuilder exact replica"
+        style={{ width: "100%", height: "100vh", border: "0" }}
+      />
+    </main>
+  );
 }
