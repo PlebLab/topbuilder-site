@@ -9,19 +9,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: "/topbuilder-exact",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/topbuilder-exact/index.html",
-        destination: "/",
-        permanent: true,
-      },
-    ];
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: "/",
+          destination: "/topbuilder-exact/index.html",
+        },
+      ],
+    };
   },
 };
 
