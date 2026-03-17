@@ -75,6 +75,24 @@
 <meta name="twitter:image" content="https://i.ibb.co/ft9FJBR/Tab-Conf-2.jpg">
 
     <!-- End of headEnd -->
+<style id="tb-faq-fix">
+.tb-faq-answer {
+  display: block;
+  width: 100%;
+  padding: 0 0 20px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2d3440;
+  white-space: pre-line;
+}
+.tb-faq-answer[hidden] {
+  display: none;
+}
+.framer-15q7t82[data-tb-faq-ready="true"] {
+  cursor: pointer;
+}
+</style>
 </head>
 <body class="framer-body-augiA20Il-framer-HGeuo">
     <script async src="/topbuilder-exact/assets/0f614f34fc1410b2373ad42b.js" data-fid="75d7d275049e0e504a2462a0d767cc379b484ccd286792626c84b17246a2bc04"></script>
@@ -94,5 +112,93 @@
     <!-- Start of bodyEnd -->
     
     <!-- End of bodyEnd -->
+<script id="tb-faq-fix-script">
+(() => {
+  const faqAnswers = {"Who is eligible to apply for Top Builder?": "The criteria for selecting Top Builder teams are multifaceted, focusing on innovation, contribution to the Bitcoin and Lightning ecosystem, and the project's potential impact. We are particularly eager to welcome new builders and entrepreneurs in the early stages of establishing a Bitcoin business, building a fresh project concept, or developing an innovative MVP.", "What kind of projects is Top Builder looking for?": "The competition looks for innovative projects contributing significantly to the Bitcoin and Lightning ecosystem, including technical solutions and unique business models.", "What are the stages of the application process?": "Registration Opens: Monday, October 28th, 2024
+
+Application: Interested teams apply for Top Builder.
+Selection: Teams will be chosen based on their application. See FAQ for details.
+
+Round 1: January 6th - February 8th, 2025
+Workshops start, selected teams join PlebLab internal chat, mentorship begins, and teams are judged on first-round milestones.
+
+Round 2: February 9th - 22nd, 2025
+PlebLab cuts half of the teams, workshops and mentorship continue, and teams are judged on second-round milestones.
+
+Round 3: Starting February 23rd, 2025
+PlebLab narrows to 5 teams, final milestones are set, and finalists are contacted to come to Austin for Startup Day.
+
+Final Round at Startup Day: Thursday, March 13th, 2025
+Final teams prepare pitches at PlebLab, present before judges, judges deliberate during happy hour, winner is announced at Austin BitDevs, then after-party celebration.", "What if I don't have a demo, video, pitch deck, or GitHub?": "Not all are required, but the more information you have, the more helpful it is for us during the application process.", "Are international teams allowed to participate?": "Yes, international teams are welcome, considering that if you make it to the Final Round, you can travel to Austin.", "Can we apply if we have already received investments?": "Teams with prior investments can apply.", "What happens after submitting the application?": "Applications will be reviewed before December 31, 2024, continuously and selected teams will be contacted for the next steps.", "Is there a deadline for project submission/update on GitHub?": "Deadlines align with the Top Builder program phases.", "What kind of support and mentorship will be provided during the Top Builder program?": "Participating teams in the Top Builder program will benefit from comprehensive support, including mentorship from the PlebLab community and access to internal chat. Top Builder offers networking with judges and peers, collaboration opportunities, global exposure, and equity-free prize money.", "Are there any fees associated with participating in Top Builder?": "There are no application or participation fees for Top Builder.", "Can you describe the format of the final presentation for Top Builder and who will be evaluating the projects?": "In the final stage, teams are allotted a 20-minute slot to present project advancements, followed by a 10-minute interactive Q&A. The judging panel includes experts in Bitcoin and Lightning, including investors, entrepreneurs, and technical specialists, assessing innovation, execution, and ecosystem impact.", "What sets the Top Builder competition at Startup Day apart in the Bitcoin startup ecosystem?": "Top Builder stands out as a global event for Bitcoin startups, combining mentorship, exposure, and collaboration in a high-signal competition environment that attracts investors and media worldwide.", "Is this competition designed for teams, individuals, or both?": "We prefer it if you already have a team, but if you need help, we can help you.", "Is this competition designed to get us funded by Timestamp, or can I compete for the prize money?": "Top Builder is a competition with equity-free prize money. The focus is on what builders create, while giving teams time, resources, mentorship, and visibility to build meaningful Bitcoin and Lightning projects.", "What are the criteria for selecting Top Builder teams?": "Selection criteria include innovation, relevance and contribution to the Bitcoin/Lightning ecosystem, project impact potential, application quality, engagement in workshops and progress updates, and final-stage presentation quality before expert judges."};
+  const rows = document.querySelectorAll('.framer-15q7t82');
+
+  function setIcon(row, expanded) {
+    const hBar = row.querySelector('.framer-j8p1yk');
+    const vBar = row.querySelector('.framer-4ddt7i');
+    if (!hBar || !vBar) return;
+
+    if (expanded) {
+      hBar.style.width = '2px';
+      hBar.style.height = '16px';
+      hBar.style.transform = 'rotate(45deg)';
+      vBar.style.transform = 'rotate(-45deg)';
+      hBar.style.backgroundColor = 'rgba(40, 44, 52, 0.35)';
+      vBar.style.backgroundColor = 'rgba(40, 44, 52, 0.35)';
+      vBar.style.opacity = '1';
+    } else {
+      hBar.style.width = '16px';
+      hBar.style.height = '2px';
+      hBar.style.transform = 'none';
+      vBar.style.transform = 'none';
+      hBar.style.backgroundColor = 'rgb(0, 0, 0)';
+      vBar.style.backgroundColor = 'rgb(0, 0, 0)';
+      vBar.style.opacity = '1';
+    }
+  }
+
+  function setExpanded(row, answerEl, expanded) {
+    answerEl.hidden = !expanded;
+    row.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    setIcon(row, expanded);
+  }
+
+  rows.forEach((row) => {
+    const questionEl = row.querySelector('p');
+    const card = row.closest('.framer-lP2Aq');
+    if (!questionEl || !card) return;
+
+    const question = questionEl.textContent.trim();
+    const answer = faqAnswers[question];
+    if (!answer) return;
+
+    if (card.querySelector('.tb-faq-answer')) return;
+
+    const answerEl = document.createElement('div');
+    answerEl.className = 'tb-faq-answer';
+    answerEl.textContent = answer;
+    answerEl.hidden = true;
+
+    card.appendChild(answerEl);
+    row.setAttribute('tabindex', '0');
+    row.setAttribute('role', 'button');
+    row.setAttribute('aria-expanded', 'false');
+    row.setAttribute('data-tb-faq-ready', 'true');
+    setIcon(row, false);
+
+    row.addEventListener('click', () => {
+      const willOpen = answerEl.hidden;
+      setExpanded(row, answerEl, willOpen);
+    });
+
+    row.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        const willOpen = answerEl.hidden;
+        setExpanded(row, answerEl, willOpen);
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
