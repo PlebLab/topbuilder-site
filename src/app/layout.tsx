@@ -21,12 +21,18 @@ const monoFont = IBM_Plex_Mono({
 });
 
 const socialPreviewLogo = "/topbuilder-exact/assets/d845327099d4adea70b7decb.png";
+const browserTabLogo = "/topbuilder-exact/assets/84d1a4829417c69544bf7d97.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.topbuilder.dev"),
   title: "Top Builder Season 2 by PlebLab | Bitcoin Innovation Event Presented by Timestamp",
   description:
     "Join Top Builder Season 2, a PlebLab event presented by Timestamp. Compete, innovate, and showcase projects advancing the Bitcoin and Lightning Network ecosystems with groundbreaking technical solutions and unique business models.",
+  icons: {
+    icon: browserTabLogo,
+    shortcut: browserTabLogo,
+    apple: browserTabLogo,
+  },
   openGraph: {
     title: "Top Builder Season 2 by PlebLab | Bitcoin Innovation Event Presented by Timestamp",
     description:
