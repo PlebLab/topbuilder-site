@@ -43,3 +43,17 @@ The migration plan is documented in:
 
 - `../llm/project/topbuilder-migration-plan.md`
 
+## Operations Notes (2026-03-17)
+
+- Production app path (VPS): `/home/thrillerx/.openclaw/workspace/topbuilder-site`
+- Production process: `pm2 topbuilder-site`
+- Standard deploy path currently used:
+  - sync changed files from omarchy to VPS
+  - `npm run build`
+  - `pm2 restart topbuilder-site`
+- Known runtime fixes deployed on this date:
+  - hero/top overlap fixes on desktop
+  - FAQ toggle behavior fixed with resilient delegated click handlers
+  - FAQ question/answer mapping updated from `cfb` uploads
+- Terminology update:
+  - `cfb` = Codex File Bridge
